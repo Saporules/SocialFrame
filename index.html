@@ -52,6 +52,7 @@
                 });
                 
             });
+
             var photoData = {imagesource:""};
             $(document).bind("pageinit",function(){
                 $("#addphoto").bind("tap", function(){
@@ -77,12 +78,11 @@
 
         <!-- INICIO -->
         <div data-role="page" id="home">
-            <header data-role="header">
+            <header id="header-app" data-role="header">
                 <h1>AttOM</h1>
             </header>
             <input id="addphoto" type="button" data-icon="plus" value="Tomar nueva foto"/>
-            <img id="photo" src="{{imagesource}}" />
-            <input id="savephoto" type="button" value="Guardar imagen"/>
+            <img id="photo" src="{{imagesource}}" width="100%" />
         </div><!-- FIN INICIO -->
 
 
