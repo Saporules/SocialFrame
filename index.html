@@ -34,15 +34,12 @@
             var photoData = {imagesource:""};
             $(document).bind("pageinit",function(){
                 $("#addphoto").bind("tap", function(){
-                    var options = {sourceType: Camera.PictureSourceType.CAMERA, destinationType: Camera.DestinationType.FILE_URI};
+                    var options = {sourceType: Camera.PictureSourceType.CAMERA, destinationType: Camera.DestinationType.FILE_URI, saveToPhotoAlbum: true};
                     navigator.camera.getPicture(onCameraSucces, onError, options);
-                    $("#savephoto").css("display","block");
-                });
-
-                $("#savephoto").bind("tap",function(){
-                    photoData.imagesource = $("#photo").attr("src");
                 });
             });
+
+            
 
             function onCameraSucces(imageURI){
                 $("#photo").attr("src", imageURI);
@@ -54,6 +51,8 @@
             }
 
 
+
+
         </script>
     </head>
     <body>
@@ -61,7 +60,6 @@
             <h1>AttOM</h1>
             <input id="addphoto" type="button" data-icon="plus" value="Tomar nueva foto"/>
             <img id="photo" src="{{imagesource}}" />
-            <input id="savephoto" type="button" value="Guardar imagen"/>
 
 
             <h2>Note Application</h2>
