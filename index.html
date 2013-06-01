@@ -32,7 +32,7 @@
         <title>Atom</title>
         <script>
             var photoData = {imagesource:""};
-            $(document).on("#home",function(){
+            $(document).bind("pageinit",function(){
                 $("#addphoto").bind("tap", function(){
                     var options = {sourceType: Camera.PictureSourceType.CAMERA, destinationType: Camera.DestinationType.FILE_URI, saveToPhotoAlbum: true};
                     navigator.camera.getPicture(onCameraSucces, onError, options);
