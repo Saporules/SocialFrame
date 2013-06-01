@@ -38,26 +38,7 @@
                     navigator.camera.getPicture(onCameraSucces, onError, options);
                     $("#savephoto").css("display","block");
                 });
-<<<<<<< HEAD
 
-                Parse.initialize("oB30YcPODc7uVg0Pn97d22niIGNOWtaVQbjfjuei", "kJLYmFjIUxEi58PQ1bc8W6WswabzlRZ7D6dO8e0s");
-                LocalObject = Parse.Object.extend("LocalObject");
-
-                var local = new LocalObject();
-                local.set("lat",position.coords.latitud);
-                local.set("long",position.coords.longituted);
-                local.save(null, {
-                  success: function(gameScore) {
-                    // The object was saved successfully.
-                  },
-                  error: function(gameScore, error) {
-                    // The save failed.
-                    // error is a Parse.Error with an error code and description.
-                  }
-                });
-
-=======
->>>>>>> parent of fbe326b... ya guarda las fotos en el carrete ;)
 
                 $("#savephoto").bind("tap",function(){
                     photoData.imagesource = $("#photo").attr("src");
