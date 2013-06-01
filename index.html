@@ -28,8 +28,8 @@
         <script src="js/jquery-2.0.1.min.js"></script>
         <script src="js/jquery.mobile-1.3.0.min.js"></script>
         <script src="js/parse-1.2.7.min.js"></script>
-        <script src="js/localizacion.js"></script>
-        <title>Hello World</title>
+        
+        <title>Atom</title>
         <script>
             var photoData = {imagesource:""};
             $(document).bind("pageinit",function(){
@@ -53,8 +53,9 @@
                         // The save failed.
                         // error is a Parse.Error with an error code and description.
                     }
+                });
             });
-            
+
 
             function onCameraSucces(imageURI){
                 $("#photo").attr("src", imageURI);
@@ -68,8 +69,6 @@
             
 
 
-
-
         </script>
     </head>
     <body>
@@ -79,6 +78,7 @@
             </header>
             <input id="addphoto" type="button" data-icon="plus" value="Tomar nueva foto"/>
             <img id="photo" src="{{imagesource}}" />
+            <input id="savephoto" type="button" value="Guardar imagen"/>
 
             
         </div>
