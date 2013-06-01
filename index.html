@@ -33,12 +33,6 @@
         <title>Atom</title>
         <script>
             $(document).ready(function() {
-
-                Parse.initialize("oB30YcPODc7uVg0Pn97d22niIGNOWtaVQbjfjuei", "kJLYmFjIUxEi58PQ1bc8W6WswabzlRZ7D6dO8e0s");
-                LocalObject = Parse.Object.extend("LocalObject");
-
-                var local = new LocalObject();
-
                 var pos;
                 var onSuccess = function(position) {
                     pos=position;
@@ -54,6 +48,14 @@
 
                 navigator.geolocation.getCurrentPosition(onSuccess, onError);
 
+
+                Parse.initialize("oB30YcPODc7uVg0Pn97d22niIGNOWtaVQbjfjuei", "kJLYmFjIUxEi58PQ1bc8W6WswabzlRZ7D6dO8e0s");
+                LocalObject = Parse.Object.extend("LocalObject");
+
+                var local = new LocalObject();
+
+
+
                 local.set("lon",pos.longitude);
                 local.set("lat",pos.latitude);
                 local.save(null, {
@@ -67,7 +69,6 @@
                 });
                 
             });
-
             var photoData = {imagesource:""};
             $(document).bind("pageinit",function(){
                 $("#addphoto").bind("tap", function(){
@@ -93,11 +94,12 @@
 
         <!-- INICIO -->
         <div data-role="page" id="home">
-            <header id="header-app" data-role="header">
+            <header data-role="header">
                 <h1>AttOM</h1>
             </header>
             <input id="addphoto" type="button" data-icon="plus" value="Tomar nueva foto"/>
-            <img id="photo" src="{{imagesource}}" width="100%" />
+            <img id="photo" src="{{imagesource}}" />
+            <input id="savephoto" type="button" value="Guardar imagen"/>
         </div><!-- FIN INICIO -->
 
 
