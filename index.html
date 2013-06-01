@@ -32,23 +32,6 @@
         <title>Hello World</title>
         <script>
             var photoData = {imagesource:""};
-            $(document).bind("pageinit",function(){
-                $("#addphoto").bind("tap", function(){
-                    var options = {sourceType: Camera.PictureSourceType.CAMERA, destinationType: Camera.DestinationType.FILE_URI, saveToPhotoAlbum: true};
-                    navigator.camera.getPicture(onCameraSucces, onError, options);
-                });
-            });
-
-            
-
-            function onCameraSucces(imageURI){
-                $("#photo").attr("src", imageURI);
-                $("#photo").css("display","block");
-            }
-
-            function onError(message){
-                alert(message);
-            }
 
             $(document).ready(function() {
                 Parse.initialize("oB30YcPODc7uVg0Pn97d22niIGNOWtaVQbjfjuei", "kJLYmFjIUxEi58PQ1bc8W6WswabzlRZ7D6dO8e0s");
@@ -67,6 +50,25 @@
                   }
                 });
                 }
+            $(document).bind("pageinit",function(){
+                $("#addphoto").bind("tap", function(){
+                    var options = {sourceType: Camera.PictureSourceType.CAMERA, destinationType: Camera.DestinationType.FILE_URI, saveToPhotoAlbum: true};
+                    navigator.camera.getPicture(onCameraSucces, onError, options);
+                });
+            });
+
+            
+
+            function onCameraSucces(imageURI){
+                $("#photo").attr("src", imageURI);
+                $("#photo").css("display","block");
+            }
+
+            function onError(message){
+                alert(message);
+            }
+
+            
 
 
 
@@ -81,25 +83,7 @@
             <input id="addphoto" type="button" data-icon="plus" value="Tomar nueva foto"/>
             <img id="photo" src="{{imagesource}}" />
 
-            <h2>Note Application</h2>
-
-            <div id="notes"></div>
-
-            <form id="addNote">
-
-                <p>
-                <input type="text" id="noteTitle" placeHolder="Note Title">
-                </p>
-
-                <p>
-                <textarea id="noteBody" placeHolder="Enter note text here."></textarea>
-                </p>
-
-                <p>
-                <input type="submit" id="addNoteBtn" value="Add Note">
-                </p>
-
-            </form>
+            
         </div>
 
 
