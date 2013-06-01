@@ -34,9 +34,11 @@
             var photoData = {imagesource:""};
             $(document).bind("pageinit",function(){
                 $("#addphoto").bind("tap", function(){
-                    var options = {sourceType: Camera.PictureSourceType.CAMERA, destinationType: Camera.DestinationType.FILE_URI, saveToPhotoAlbum: true};
+                    var options = {sourceType: Camera.PictureSourceType.CAMERA, destinationType: Camera.DestinationType.FILE_URI};
                     navigator.camera.getPicture(onCameraSucces, onError, options);
+                    $("#savephoto").css("display","block");
                 });
+<<<<<<< HEAD
 
                 Parse.initialize("oB30YcPODc7uVg0Pn97d22niIGNOWtaVQbjfjuei", "kJLYmFjIUxEi58PQ1bc8W6WswabzlRZ7D6dO8e0s");
                 LocalObject = Parse.Object.extend("LocalObject");
@@ -54,8 +56,13 @@
                   }
                 });
 
+=======
+>>>>>>> parent of fbe326b... ya guarda las fotos en el carrete ;)
 
-            
+                $("#savephoto").bind("tap",function(){
+                    photoData.imagesource = $("#photo").attr("src");
+                });
+            });
 
             function onCameraSucces(imageURI){
                 $("#photo").attr("src", imageURI);
@@ -69,8 +76,6 @@
             
 
 
-
-
         </script>
     </head>
     <body>
@@ -80,6 +85,7 @@
             </header>
             <input id="addphoto" type="button" data-icon="plus" value="Tomar nueva foto"/>
             <img id="photo" src="{{imagesource}}" />
+            <input id="savephoto" type="button" value="Guardar imagen"/>
 
             
         </div>
