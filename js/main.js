@@ -1,5 +1,5 @@
-var PARSE_APP = "[Parse.com Application ID]";
-var PARSE_JS = "[Parse.com JavaScript Key]";
+var PARSE_APP = "oB30YcPODc7uVg0Pn97d22niIGNOWtaVQbjfjuei";
+var PARSE_JS = "kJLYmFjIUxEi58PQ1bc8W6WswabzlRZ7D6dO8e0s";
 
 $(document).ready(function() {
 	Parse.initialize(PARSE_APP, PARSE_JS);
