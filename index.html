@@ -31,12 +31,19 @@
         <script src="main.js"></script>
         <title>Hello World</title>
         <script>
+            var photoData = {imagesource:""};
             $(document).bind("pageinit",function(){
                 $("#addphoto").bind("tap", function(){
                     var options = {sourceType: Camera.PictureSourceType.CAMERA, destinationType: Camera.DestinationType.FILE_URI};
                     navigator.camera.getPicture(onCameraSucces, onError, options);
+                    $("#savephoto").css("display","block");
+                });
+
+                $("#savephoto").bind("tap",function(){
+                    photoData.imagesource = $("#photo").attr("src");
                 });
             });
+
             function onCameraSucces(imageURI){
                 $("#photo").attr("src", imageURI);
                 $("#photo").css("display","block");
@@ -45,6 +52,8 @@
             function onError(message){
                 alert(message);
             }
+
+
         </script>
     </head>
     <body>
@@ -52,29 +61,28 @@
             <h1>AttOM</h1>
             <input id="addphoto" type="button" data-icon="plus" value="Tomar nueva foto"/>
             <img id="photo" src="{{imagesource}}" />
+            <input id="savephoto" type="button" value="Guardar imagen"/>
+
+            <h2>Note Application</h2>
+
+            <div id="notes"></div>
+
+            <form id="addNote">
+
+            <p>
+            <input type="text" id="noteTitle" placeHolder="Note Title">
+            </p>
+
+            <p>
+            <textarea id="noteBody" placeHolder="Enter note text here."></textarea>
+            </p>
+
+            <p>
+            <input type="submit" id="addNoteBtn" value="Add Note">
+            </p>
+
+            </form>
         </div>
-
-
-
-        <h2>Note Application</h2>
-
-        <div id="notes"></div>
-
-        <form id="addNote">
-
-        <p>
-        <input type="text" id="noteTitle" placeHolder="Note Title">
-        </p>
-
-        <p>
-        <textarea id="noteBody" placeHolder="Enter note text here."></textarea>
-        </p>
-
-        <p>
-        <input type="submit" id="addNoteBtn" value="Add Note">
-        </p>
-
-        </form>
 
 
 
