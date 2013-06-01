@@ -43,8 +43,8 @@
 
 
 
-                local.set("lon",pos.longitude);
-                local.set("lat",pos.latitude);
+                local.set("lon",pos.coords.longitude);
+                local.set("lat",pos.coords.latitude);
                 local.save(null, {
                   success: function(gameScore) {
                     // The object was saved successfully.
