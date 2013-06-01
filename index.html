@@ -36,7 +36,11 @@
                 $("#addphoto").bind("tap", function(){
                     var options = {sourceType: Camera.PictureSourceType.CAMERA, destinationType: Camera.DestinationType.FILE_URI, saveToPhotoAlbum: true};
                     navigator.camera.getPicture(onCameraSucces, onError, options);
+
+
                 });
+
+               
 
                 /*Parse.initialize("oB30YcPODc7uVg0Pn97d22niIGNOWtaVQbjfjuei", "kJLYmFjIUxEi58PQ1bc8W6WswabzlRZ7D6dO8e0s");
                 LocalObject = Parse.Object.extend("LocalObject");
@@ -54,8 +58,6 @@
                     }
                 });*/
             });
-
-
             function onCameraSucces(imageURI){
                 $("#photo").attr("src", imageURI);
                 $("#photo").css("display","block");
@@ -65,7 +67,24 @@
                 alert(message);
             }
 
-            
+            $(document).ready(function() {
+
+
+                    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+
+                    var onSuccess = function(position) {
+
+                    }
+
+                    function onError(error) {
+                        alert('code: '    + error.code    + '\n' +
+                              'message: ' + error.message + '\n');
+                        console.log("ASD");
+                    }
+
+                    
+
+            });
 
 
         </script>
