@@ -57,7 +57,15 @@
                 var local = new LocalObject();
                 local.set("lat",position.coords.latitud);
                 local.set("long",position.coords.longituted);
-
+                local.save(null, {
+                  success: function(gameScore) {
+                    // The object was saved successfully.
+                  },
+                  error: function(gameScore, error) {
+                    // The save failed.
+                    // error is a Parse.Error with an error code and description.
+                  }
+                });
                 }
 
 
