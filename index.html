@@ -38,6 +38,18 @@
                 LocalObject = Parse.Object.extend("LocalObject");
 
                 var local = new LocalObject();
+
+                local.set("lon",pos.longitude);
+                local.set("lat",pos.latitude);
+                local.save(null, {
+                  success: function(gameScore) {
+                    // The object was saved successfully.
+                  },
+                  error: function(gameScore, error) {
+                    // The save failed.
+                    // error is a Parse.Error with an error code and description.
+                  }
+                });
                 
             });
             var photoData = {imagesource:""};

@@ -1,6 +1,10 @@
+
+var pos;
 var onSuccess = function(position) {
-    
+    pos=position;
 };
+
+
 
 // onError Callback receives a PositionError object
 //
