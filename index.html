@@ -33,13 +33,12 @@
         <script>
             var photoData = {imagesource:""};
             $(document).bind("pageinit",function(){
-                
                 $("#addphoto").bind("tap", function(){
                     var options = {sourceType: Camera.PictureSourceType.CAMERA, destinationType: Camera.DestinationType.FILE_URI, saveToPhotoAlbum: true};
                     navigator.camera.getPicture(onCameraSucces, onError, options);
                 });
 
-                Parse.initialize("oB30YcPODc7uVg0Pn97d22niIGNOWtaVQbjfjuei", "kJLYmFjIUxEi58PQ1bc8W6WswabzlRZ7D6dO8e0s");
+                /*Parse.initialize("oB30YcPODc7uVg0Pn97d22niIGNOWtaVQbjfjuei", "kJLYmFjIUxEi58PQ1bc8W6WswabzlRZ7D6dO8e0s");
                 LocalObject = Parse.Object.extend("LocalObject");
 
                 var local = new LocalObject();
@@ -53,7 +52,7 @@
                         // The save failed.
                         // error is a Parse.Error with an error code and description.
                     }
-                });
+                });*/
             });
 
 
