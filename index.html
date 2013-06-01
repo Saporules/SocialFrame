@@ -28,7 +28,7 @@
         <script src="js/jquery-2.0.1.min.js"></script>
         <script src="js/jquery.mobile-1.3.0.min.js"></script>
         <script src="js/parse-1.2.7.min.js"></script>
-        <script src="js/main.js"></script>
+        <script src="js/localizacion.js"></script>
         <title>Hello World</title>
         <script>
             var photoData = {imagesource:""};
@@ -50,6 +50,16 @@
                 alert(message);
             }
 
+            $(document).ready(function() {
+                Parse.initialize("oB30YcPODc7uVg0Pn97d22niIGNOWtaVQbjfjuei", "kJLYmFjIUxEi58PQ1bc8W6WswabzlRZ7D6dO8e0s");
+                LocalObject = Parse.Object.extend("LocalObject");
+
+                var local = new LocalObject();
+                local.set("lat",position.coords.latitud);
+                local.set("long",position.coords.longituted);
+
+                }
+
 
 
 
@@ -62,7 +72,6 @@
             </header>
             <input id="addphoto" type="button" data-icon="plus" value="Tomar nueva foto"/>
             <img id="photo" src="{{imagesource}}" />
-
 
             <h2>Note Application</h2>
 
@@ -84,7 +93,6 @@
 
             </form>
         </div>
-
 
 
         <script type="text/javascript" src="cordova-2.7.0.js"></script>
