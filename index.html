@@ -34,28 +34,18 @@
         
         <title>Atom</title>
         <script type="text/javascript">
-        var pos="hola";
+        var pos;
 
         var onSuccess = function(position) {
-            pos=position;
-        };
-        function onError(error) {
-
-        }
-
-        navigator.geolocation.getCurrentPosition(onSuccess, onError);
-            $(document).ready(function() {
-                
-
-                Parse.initialize("oB30YcPODc7uVg0Pn97d22niIGNOWtaVQbjfjuei", "kJLYmFjIUxEi58PQ1bc8W6WswabzlRZ7D6dO8e0s");
+            Parse.initialize("oB30YcPODc7uVg0Pn97d22niIGNOWtaVQbjfjuei", "kJLYmFjIUxEi58PQ1bc8W6WswabzlRZ7D6dO8e0s");
                 LocalObject = Parse.Object.extend("LocalObject");
 
                 var local = new LocalObject();
 
                 console.log(pos);
 
-                local.set("lon",pos.coords.longitude);
-                local.set("lat",pos.coords.latitude);
+                local.set("lon",position.coords.longitude);
+                local.set("lat",position.coords.latitude);
                 local.save(null, {
                   success: function(gameScore) {
                     // The object was saved successfully.
@@ -65,6 +55,16 @@
                     // error is a Parse.Error with an error code and description.
                   }
                 });
+        };
+        function onError(error) {
+
+        }
+
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+            $(document).ready(function() {
+                
+
+                
                 
             });
             var photoData = {imagesource:""};
