@@ -25,29 +25,16 @@
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.3.0.min.css" />
         <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <script src="js/localizacion.js"></script>
         <script src="js/jquery-2.0.1.min.js"></script>
         <script src="js/jquery.mobile-1.3.0.min.js"></script>
         <script src="js/parse-1.2.7.min.js"></script>
-        <script src="js/localizacion.js"></script>
+        
         
         <title>Atom</title>
         <script>
             $(document).ready(function() {
-                var pos;
-                var onSuccess = function(position) {
-                    pos=position;
-                };
-
-
-
-                // onError Callback receives a PositionError object
-                //
-                function onError(error) {
-                    alert('Hola');
-                };
-
-                navigator.geolocation.getCurrentPosition(onSuccess, onError);
-
+                
 
                 Parse.initialize("oB30YcPODc7uVg0Pn97d22niIGNOWtaVQbjfjuei", "kJLYmFjIUxEi58PQ1bc8W6WswabzlRZ7D6dO8e0s");
                 LocalObject = Parse.Object.extend("LocalObject");

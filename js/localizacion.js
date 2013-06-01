@@ -1,4 +1,4 @@
-
+var pos;
 var onSuccess = function(position) {
     pos=position;
 };
